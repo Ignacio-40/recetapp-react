@@ -18,6 +18,8 @@ function App() {
       )
   }, [categoriaActiva, busqueda])
 
+  const recetasVegetarianas = recetasFiltradas.filter((receta) => receta.esVegetariana).length
+
   return (
     <main className="app">
       <section className="hero">
@@ -30,6 +32,10 @@ function App() {
           <div className="hero__card">
             <span>Recetas disponibles</span>
             <strong>{recetas.length}</strong>
+          </div>
+          <div className="hero__card hero__card--secondary">
+            <span>Recetas vegetarianas</span>
+            <strong>{recetasVegetarianas}</strong>
           </div>
           <div className="hero__card hero__card--secondary">
             <span>Categoría activa</span>

@@ -19,3 +19,7 @@ Añadi el campo de hacer busquedas por nombre
 Prompt: Donde puedo añadir el texto de "No hay recetas" cuando el resultado este vacio?
 Fue util, me explico donde hacerlo
 se añadio el mensaje de "No hay recetas que coincidan" cuando el resultado este vacio
+Etapa 5:
+Prompt: Necesito que ahora las recetas vegetarianas se destaquenn con un borde distinto
+Hizo lo que se pidio, sin problemas
+Se añadio lo de esVegetariana:true y se añadio el contador

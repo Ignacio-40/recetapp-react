@@ -1,6 +1,6 @@
 import React from 'react'
 
-function RecetaCard({ nombre, origen, porciones, categoria, descripcion, ingredientes }) {
+function RecetaCard({ nombre, origen, porciones, categoria, descripcion, ingredientes, esVegetariana }) {
   const ingredientesList = Array.isArray(ingredientes)
     ? ingredientes
     : typeof ingredientes === 'string'
@@ -12,7 +12,7 @@ function RecetaCard({ nombre, origen, porciones, categoria, descripcion, ingredi
     : 'general'
 
   return (
-    <article className={`receta-card receta-card--categoria-${normalizedCategory}`}>
+    <article className={`receta-card receta-card--categoria-${normalizedCategory} ${esVegetariana ? 'receta-card--vegetariana' : ''}`}>
       <header className="receta-card__header">
         <h2 className="receta-card__title">{nombre}</h2>
         <p className="receta-card__meta">
