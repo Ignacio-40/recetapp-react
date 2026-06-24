@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import RecetaCard from './components/RecetaCard'
+import ListaRecetas from './components/ListaRecetas'
 import { recetas } from './data/recetas'
 import './App.css'
 
@@ -49,17 +49,7 @@ function App() {
 
       <section className="cards-grid">
         {recetasFiltradas.length > 0 ? (
-          recetasFiltradas.map((receta) => (
-            <RecetaCard
-              key={receta.id}
-              nombre={receta.nombre}
-              origen={receta.origen}
-              porciones={receta.porciones}
-              categoria={receta.categoria}
-              descripcion={receta.descripcion}
-              ingredientes={receta.ingredientes}
-            />
-          ))
+          <ListaRecetas recetas={recetasFiltradas} />
         ) : (
           <div className="empty-state">No hay recetas disponibles en esta categoría.</div>
         )}
