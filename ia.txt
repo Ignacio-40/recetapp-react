@@ -1,0 +1,6 @@
+Prompt: Necesito que hagas lo siguientes: en src/components/RecetaCard.jsx, hagas que el componente que recibe por props sean: nombre, origen, porciones, categoria, descripcion, ingredientes y que la informacion se muestre de forma visual y ordenada 
+Fue util, se añadio lo que se pidio
+No modifique nada, debido a que no hacia falta
+Prompt: Crea la interfaz de la aplicacion hace que cada categoria tenga un estilo diferenciado, un color y estilo distinto para cada uno
+fue util, tuvo algunos problemas con ciertas partes de el texto
+Se cambio algunos textos que se pusieron de forma erronea
