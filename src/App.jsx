@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import ListaRecetas from './components/ListaRecetas'
+import FiltroCategoria from './components/FiltroCategoria'
 import { recetas } from './data/recetas'
 import './App.css'
 
@@ -7,12 +8,15 @@ const categorias = ['Todas', 'Entrada', 'Fondo', 'Postre']
 
 function App() {
   const [categoriaActiva, setCategoriaActiva] = useState('Todas')
+  const [busqueda, setBusqueda] = useState('')
 
   const recetasFiltradas = useMemo(() => {
-    return categoriaActiva === 'Todas'
-      ? recetas
-      : recetas.filter((receta) => receta.categoria === categoriaActiva)
-  }, [categoriaActiva])
+    return recetas
+      .filter((receta) => categoriaActiva === 'Todas' || receta.categoria === categoriaActiva)
+      .filter((receta) =>
+        receta.nombre.toLowerCase().includes(busqueda.trim().toLowerCase())
+      )
+  }, [categoriaActiva, busqueda])
 
   return (
     <main className="app">
@@ -20,7 +24,7 @@ function App() {
         <div className="hero__texto">
           <span className="hero__badge">RecetApp</span>
           <h1>Recetas ordenadas por categoría</h1>
-          <p>Explora entradas, fondos y postres con estilo claro y tarjetas visuales.</p>
+          <p>Filtra por categoría y busca recetas por nombre con una interfaz clara.</p>
         </div>
         <div className="hero__status">
           <div className="hero__card">
@@ -34,24 +38,32 @@ function App() {
         </div>
       </section>
 
-      <section className="filters">
-        {categorias.map((categoria) => (
-          <button
-            key={categoria}
-            type="button"
-            className={`filter-button ${categoriaActiva === categoria ? 'filter-button--active' : ''}`}
-            onClick={() => setCategoriaActiva(categoria)}
-          >
-            {categoria}
-          </button>
-        ))}
+      <section className="toolbar">
+        <FiltroCategoria
+          categorias={categorias}
+          categoriaActiva={categoriaActiva}
+          onCambiarCategoria={setCategoriaActiva}
+        />
+        <div className="search-bar">
+          <label htmlFor="busqueda-nombre" className="search-label">
+            Buscar por nombre
+          </label>
+          <input
+            id="busqueda-nombre"
+            type="search"
+            value={busqueda}
+            onChange={(event) => setBusqueda(event.target.value)}
+            placeholder="Ej. Tarta de Verduras"
+            className="search-input"
+          />
+        </div>
       </section>
 
       <section className="cards-grid">
         {recetasFiltradas.length > 0 ? (
           <ListaRecetas recetas={recetasFiltradas} />
         ) : (
-          <div className="empty-state">No hay recetas disponibles en esta categoría.</div>
+          <div className="empty-state">No hay recetas que coincidan.</div>
         )}
       </section>
     </main>

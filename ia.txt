@@ -12,3 +12,10 @@ No hubo cambios
 Prompt: Como puedo asignar la prop key usando el id de cada elemento sin usar el indice del array y ademas poder renderizar en app.jsx la ListaRecetas?
 util hizo lo que le pedi
 Se actualizo la app.jsx para poder usar ListaRecetas con los datos importados
+Etapa 4:
+Prompt: Necesito que me ayudes a hacer el selector por filtros, que deberia estar en FiltroCategoria.jsx, y en app.jsx se pueda usar useState para poder guardar el filtro seleccionado
+Logro cumplir con lo requerido
+Añadi el campo de hacer busquedas por nombre 
+Prompt: Donde puedo añadir el texto de "No hay recetas" cuando el resultado este vacio?
+Fue util, me explico donde hacerlo
+se añadio el mensaje de "No hay recetas que coincidan" cuando el resultado este vacio
